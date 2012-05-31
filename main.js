@@ -4,7 +4,7 @@ var skai = require("skai").Begin();
 
 app.get("/", function(request, response) {
 	skai.query("list all forms", function(err, result) {
-		response.end("There are " + result.length + " forms in this database.");
+		response.end(JSON.stringify(result));
 	})
 });
 
