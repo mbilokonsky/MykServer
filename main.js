@@ -1,7 +1,11 @@
 var app = module.exports = require("express").createServer();
 
+var skai = require("skai").Begin();
+
 app.get("/", function(request, response) {
-	response.end("This is myk's test server!");
+	skai.query("list all forms", function(err, result) {
+		response.end("There are " + result.length + " forms in this database.");
+	})
 });
 
 app.listen(80);
